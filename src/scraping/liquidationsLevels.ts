@@ -8,16 +8,10 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
 export default async (credentials:any, ticker: string)=>{
-    // set screen size to be full hd
     const browser = await puppeteer.launch({ headless: true, defaultViewport: { width: 1920, height: 1080 } })
-    // const browser = await puppeteer.launch({ headless: false })
+
     const page = await browser.newPage()
 
-
-
-
-
-    // Enable request interception
     await page.setRequestInterception(true);
 
     // Listen for all requests to the page
@@ -29,7 +23,6 @@ export default async (credentials:any, ticker: string)=>{
         if(url.includes('https://data.hyblockcapital.com/pythonPages/liq-level?')) {
             // Modify the url, change 'sol' to 'btc'
             modifiedUrl = url.replace('ticker=sol',`ticker=${ticker}` );
-            console.log(`Request URL modified from ${url} to ${modifiedUrl}`);
 
             // Continue the request with the modified url
             interceptedRequest.continue({
@@ -40,8 +33,6 @@ export default async (credentials:any, ticker: string)=>{
             interceptedRequest.continue();
         }
     });
-
-
 
 
     // Set localstorage values of https://hyblockcapital.com/login to be localStorageValues
@@ -57,6 +48,8 @@ export default async (credentials:any, ticker: string)=>{
 
     // wait until .my_plot is loaded
     await page.waitForSelector('.my_plot')
+
+    await page.waitForTimeout(1000)
 
 
     const svg = await page.evaluate(() => {
@@ -93,7 +86,6 @@ export default async (credentials:any, ticker: string)=>{
     }
 
     await browser.close()
-    // console.log(`All done, check the screenshot. ✨`)
 
     return pngBuffer
 }

@@ -5,10 +5,10 @@
  * This file exports all commands.
  */
 import { Collection } from 'discord.js';
-import ping from './ping';
+import levels from './levels';
 import { Command } from './Command';
 
-const commands = [ping];
+const commands = [levels];
 
 const collection = new Collection<string, Command>();
 
