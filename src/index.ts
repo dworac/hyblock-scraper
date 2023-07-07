@@ -7,13 +7,15 @@
 
 import Logger from "@dworac/logger";
 import sum from "./sum";
+import scraping from "./scraping";
+import discord from "./discord";
 
 /**
  * Main function.
  */
 async function main() {
-  const res = sum(1, 2);
-  Logger.logInfo(`1 + 2 = ${res}`);
+  // await scraping()
+  await discord()
 }
 
 main().catch((e) => {
