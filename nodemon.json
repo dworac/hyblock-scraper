@@ -1,0 +1,7 @@
+{
+  "watch": ["src"],
+  "ignore": ["node_modules", "dist", ".idea", "coverage", "./husky"],
+  "ext": "ts,mjs,js,json,env",
+  "exec": "yarn build:dev && yarn start",
+  "legacyWatch": true
+}
