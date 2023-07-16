@@ -6,16 +6,13 @@
  */
 
 import Logger from "@dworac/logger";
-import sum from "./sum";
-import scraping from "./scraping";
 import discord from "./discord";
 
 /**
  * Main function.
  */
 async function main() {
-  // await scraping()
-  await discord()
+  await discord();
 }
 
 main().catch((e) => {

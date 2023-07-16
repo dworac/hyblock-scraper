@@ -1,255 +1,261 @@
+/**
+ * @file src/symbols.ts
+ * @author dworac <mail@dworac.com>
+ *
+ *     This file is used to store the symbols of the cryptocurrencies.
+ */
 export default [
-    "gmt",
-    "gmx",
-    "band",
+  "gmt",
+  "gmx",
+  "band",
 
-    "ldo",
+  "ldo",
 
-    "xrp",
+  "xrp",
 
-    "bel",
+  "bel",
 
-    "crv",
+  "crv",
 
-    "dot",
+  "dot",
 
-    "one",
+  "one",
 
-    "apt",
+  "apt",
 
-    "ankr",
+  "ankr",
 
-    "api3",
+  "api3",
 
-    "astr",
+  "astr",
 
-    "hot",
+  "hot",
 
-    "qtum",
+  "qtum",
 
-    "iota",
+  "iota",
 
-    "ada",
+  "ada",
 
-    "lit",
+  "lit",
 
-    "yfi",
+  "yfi",
 
-    "eth",
+  "eth",
 
-    "alpha",
+  "alpha",
 
-    "woo",
+  "woo",
 
-    "sfp",
+  "sfp",
 
-    "rlc",
+  "rlc",
 
-    "1000xec",
+  "1000xec",
 
-    "cfx",
+  "cfx",
 
-    "fxs",
+  "fxs",
 
-    "audio",
+  "audio",
 
-    "neo",
+  "neo",
 
-    "unfi",
+  "unfi",
 
-    "sand",
+  "sand",
 
-    "ctk",
+  "ctk",
 
-    "link",
+  "link",
 
-    "mina",
+  "mina",
 
-    "celr",
+  "celr",
 
-    "rsr",
+  "rsr",
 
-    "ren",
+  "ren",
 
-    "jasmy",
+  "jasmy",
 
-    "lpt",
+  "lpt",
 
-    "phb",
+  "phb",
 
-    "egld",
+  "egld",
 
-    "luna2",
+  "luna2",
 
-    "imx",
+  "imx",
 
-    "ont",
+  "ont",
 
-    "vet",
+  "vet",
 
-    "coti",
+  "coti",
 
-    "cvx",
+  "cvx",
 
-    "bake",
+  "bake",
 
-    "grt",
+  "grt",
 
-    "flm",
+  "flm",
 
-    "mask",
+  "mask",
 
-    "eos",
+  "eos",
 
-    "bal",
+  "bal",
 
-    "cocos",
+  "cocos",
 
-    "dent",
+  "dent",
 
-    "c98",
+  "c98",
 
-    "zen",
+  "zen",
 
-    "near",
+  "near",
 
-    "bch",
+  "bch",
 
-    "1000shib",
+  "1000shib",
 
-    "ant",
+  "ant",
 
-    "aave",
+  "aave",
 
-    "icp",
+  "icp",
 
-    "1000lunc",
+  "1000lunc",
 
-    "avax",
+  "avax",
 
-    "magic",
+  "magic",
 
-    "rose",
+  "rose",
 
-    "matic",
+  "matic",
 
-    "mkr",
+  "mkr",
 
-    "people",
+  "people",
 
-    "theta",
+  "theta",
 
-    "uni",
+  "uni",
 
-    "rvn",
+  "rvn",
 
-    "nkn",
+  "nkn",
 
-    "klay",
+  "klay",
 
-    "defi",
+  "defi",
 
-    "btcdom",
+  "btcdom",
 
-    "comp",
+  "comp",
 
-    "btc",
+  "btc",
 
-    "omg",
+  "omg",
 
-    "icx",
+  "icx",
 
-    "fet",
+  "fet",
 
-    "ftm",
+  "ftm",
 
-    "sxp",
+  "sxp",
 
-    "xem",
+  "xem",
 
-    "zil",
+  "zil",
 
-    "axs",
+  "axs",
 
-    "dydx",
+  "dydx",
 
-    "ocean",
+  "ocean",
 
-    "chz",
+  "chz",
 
-    "dusk",
-    "ach",
-    "ctsi",
-    "gmt",
-    "gmx",
-    "fxs",
-    "audio",
-    "gala",
-    "sushi",
-    "inj",
-    "zrx",
-    "high",
-    "spell",
-    "waves",
-    "bnb",
-    "xtz",
-    "dar",
-    "hnt",
-    "etc",
-    "xmr",
-    "alice",
-    "hook",
-    "reef",
-    "bat",
-    "doge",
-    "trx",
-    "storj",
-    "snx",
-    "xlm",
-    "iotx",
-    "dash",
-    "kava",
-    "ape",
-    "rune",
-    "bluebird",
-    "op",
-    "dgb",
-    "football",
-    "skl",
-    "mtl",
-    "tomo",
-    "ltc",
-    "ksm",
-    "flow",
-    "mana",
-    "trb",
-    "chr",
-    "gal",
-    "ogn",
-    "rndr",
-    "stmx",
-    "knc",
-    "enj",
-    "atom",
-    "ens",
-    "agix",
-    "ata",
-    "iost",
-    "hbar",
-    "zec",
-    "gtc",
-    "algo",
-    "lrc",
-    "stg",
-    "stx",
-    "arpa",
-    "celo",
-    "qnt",
-    "1inch",
-    "t",
-    "lina",
-    "ar",
-    "fil",
-    "sol",
-    "blz"
-]
+  "dusk",
+  "ach",
+  "ctsi",
+  "gmt",
+  "gmx",
+  "fxs",
+  "audio",
+  "gala",
+  "sushi",
+  "inj",
+  "zrx",
+  "high",
+  "spell",
+  "waves",
+  "bnb",
+  "xtz",
+  "dar",
+  "hnt",
+  "etc",
+  "xmr",
+  "alice",
+  "hook",
+  "reef",
+  "bat",
+  "doge",
+  "trx",
+  "storj",
+  "snx",
+  "xlm",
+  "iotx",
+  "dash",
+  "kava",
+  "ape",
+  "rune",
+  "bluebird",
+  "op",
+  "dgb",
+  "football",
+  "skl",
+  "mtl",
+  "tomo",
+  "ltc",
+  "ksm",
+  "flow",
+  "mana",
+  "trb",
+  "chr",
+  "gal",
+  "ogn",
+  "rndr",
+  "stmx",
+  "knc",
+  "enj",
+  "atom",
+  "ens",
+  "agix",
+  "ata",
+  "iost",
+  "hbar",
+  "zec",
+  "gtc",
+  "algo",
+  "lrc",
+  "stg",
+  "stx",
+  "arpa",
+  "celo",
+  "qnt",
+  "1inch",
+  "t",
+  "lina",
+  "ar",
+  "fil",
+  "sol",
+  "blz",
+];

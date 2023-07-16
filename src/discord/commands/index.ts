@@ -4,16 +4,16 @@
  *
  * This file exports all commands.
  */
-import { Collection } from 'discord.js';
-import levels from './levels';
-import { Command } from './Command';
+import { Collection } from "discord.js";
+import levels from "./levels";
+import { Command } from "./Command";
 
 const commands = [levels];
 
 const collection = new Collection<string, Command>();
 
 commands.forEach((command) => {
-	collection.set(command.data.name, command);
+  collection.set(command.data.name, command);
 });
 
 export default collection;
