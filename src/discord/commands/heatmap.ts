@@ -65,7 +65,7 @@ const command: Command = {
           "https://media.licdn.com/dms/image/C4D0BAQES6UacuySbaw/company-logo_200_200/0/1635373734562?e=2147483647&v=beta&t=gX6Ysbmav8n9yk_rKMQz2aJ4NnnVcQB_BuiYQD9pmj4",
       })
       .setDescription(
-        "Liquidation Levels are estimates of potential price levels where liquidation events may occur. If a trader knows the locations of other traders' liquidation levels, it may provide an edge."
+        "Liquidation Heatmap are estimates of potential price levels where liquidation events may occur. If a trader knows the locations of other traders' liquidation levels, it may provide an edge."
       )
       .setImage(
         "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921"
