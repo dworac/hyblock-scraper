@@ -15,7 +15,7 @@ puppeteer.use(StealthPlugin());
 export default async (credentials: any, ticker: string) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const options: any = {
-    headless: true,
+    headless: false,
     defaultViewport: { width: 1920, height: 1080 },
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   };
@@ -60,14 +60,25 @@ export default async (credentials: any, ticker: string) => {
     downloadPath: __dirname,
   });
 
+  // delete myplot.png if it exists
+  const myPlotPath = path.join(__dirname, "newplot.png");
+  if (fs.existsSync(myPlotPath)) {
+    fs.rmSync(myPlotPath);
+  }
+
   // Click on element with data-title="Download plot as a png"
   await page.click('[data-title="Download plot as a png"]');
 
-  // Wait for download to finish
-  await page.waitForTimeout(5000);
+  // wait for newplot.png to be downloaded max 30 seconds
+  let counter = 0;
+  while (!fs.existsSync(myPlotPath) && counter < 30) {
+    // eslint-disable-next-line no-await-in-loop
+    await page.waitForTimeout(1000);
+    counter += 1;
+  }
 
   // Open downloaded file
-  const file = fs.readFileSync(path.join(__dirname, "newplot.png"));
+  const file = fs.readFileSync(myPlotPath);
 
   await browser.close();
 
