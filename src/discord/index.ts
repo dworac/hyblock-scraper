@@ -6,6 +6,7 @@
  */
 import { Client, GatewayIntentsString } from "discord.js";
 import Logger from "@dworac/logger";
+// eslint-disable-next-line import/no-cycle
 import onReady from "./events/onReady";
 import onInteraction from "./events/onInteraction";
 import config from "../config";

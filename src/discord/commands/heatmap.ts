@@ -11,20 +11,19 @@ import {
 } from "discord.js";
 import fs from "fs";
 import { Command } from "./Command";
-import liquidationsLevels from "../../scraping/liquidationsLevels";
 import fetchCredentials from "../../scraping/fetchCredentials";
-import symbols from "../../symbols";
+import liquidationsHeatmap from "../../scraping/liquidationsHeatmap";
 
 let lastFetched = new Date(0);
 
 const command: Command = {
   data: new SlashCommandBuilder()
-    .setName("levels")
-    .setDescription("Get liquidation levels for a symbol")
+    .setName("heatmap")
+    .setDescription("Get liquidation heatmap for a symbol")
     .addStringOption((option) => {
       return option
         .setName("symbol")
-        .setDescription("The symbol of the cryptocurrency such as BTC or ETH");
+        .setDescription("The symbol of the cryptocurrency, must be BTC or ETH");
     }),
   execute: async (interaction) => {
     const input = interaction.options.data[0].value;
@@ -41,7 +40,7 @@ const command: Command = {
     }
 
     // Valida if input is a valid symbol
-    if (!symbols.includes(input.toUpperCase())) {
+    if (!["ETH", "BTC"].includes(input.toUpperCase())) {
       await interaction.reply("Invalid symbol");
       return;
     }
@@ -57,7 +56,7 @@ const command: Command = {
     // await interaction.reply(`Fetching liquidation levels for: ${input.toLowerCase()}...`);
     const exampleEmbed = new EmbedBuilder()
       .setColor(0x0099ff)
-      .setTitle(`$${input.toUpperCase()} Liquidation Levels`)
+      .setTitle(`$${input.toUpperCase()} Liquidation Heatmap`)
       .setURL("https://hyblockcapital.com/liquidationlevel")
       .setAuthor({
         name: "Hyblock Unnoficial Bot (beta)",
@@ -80,7 +79,7 @@ const command: Command = {
     try {
       const credentials = await fetchCredentials.getCredentials();
 
-      const imageBuffer = await liquidationsLevels(credentials, input);
+      const imageBuffer = await liquidationsHeatmap(credentials, input);
 
       fs.writeFileSync("image.png", imageBuffer);
       const file = new AttachmentBuilder("image.png");

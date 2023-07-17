@@ -7,8 +7,10 @@
 import { Collection } from "discord.js";
 import levels from "./levels";
 import { Command } from "./Command";
+import heatmap from "./heatmap";
+import donate from "./donate";
 
-const commands = [levels];
+const commands = [levels, heatmap, donate];
 
 const collection = new Collection<string, Command>();
 

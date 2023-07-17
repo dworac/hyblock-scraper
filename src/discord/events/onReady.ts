@@ -7,6 +7,7 @@
 import { REST } from "@discordjs/rest";
 import { APIApplicationCommandOption, Routes } from "discord-api-types/v9";
 import Logger from "@dworac/logger";
+// eslint-disable-next-line import/no-cycle
 import commands from "../commands";
 import config from "../../config";
 

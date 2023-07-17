@@ -5,75 +5,90 @@
  *     This file is used to fetch the credentials from the website.
  */
 import Logger from "@dworac/logger";
+import puppeteer from "puppeteer";
+import StealthPlugin from "puppeteer-extra-plugin-stealth";
 
-const puppeteer = require("puppeteer-extra");
-const StealthPlugin = require("puppeteer-extra-plugin-stealth");
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 puppeteer.use(StealthPlugin());
 
-let credentials: any;
-let credentialsDate = new Date(0);
+class CredentialsFetcher {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private credentials: any;
 
-export default async () => {
-  if (credentials) {
-    Logger.logInfo(
-      "[FETCH CREDENTIALS] Credentials already fetched, returning them."
-    );
+  private credentialsDate: Date = new Date(0);
 
-    // Check if credentials are still valid (valid for 1 hour)
-    if (new Date().getTime() - credentialsDate.getTime() < 3600000) {
-      return credentials;
-    }
-  }
-
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
-
-  Logger.logInfo("[FETCH_CREDENTIALS] Browser launched");
-  const page = await browser.newPage();
-
-  await page.goto("https://hyblockcapital.com/login");
-
-  // wait for input #Email and #Password to appear and write in credentials
-  await page.waitForSelector("#Email");
-  await page.type("#Email", "dworac");
-  await page.waitForSelector("#Password");
-  await page.type("#Password", "Aasdf;lkj4325@");
-
-  // // submit #my_login_form and wait for navigation to finish
-  await Promise.all([
-    page.evaluate(() => {
-      document.querySelector("form button").click();
-    }),
-    page.waitForNavigation({ waitUntil: "networkidle0" }),
-  ]);
-
-  Logger.logInfo("[FETCH_CREDENTIALS] Logged in");
-
-  // get all localstorage values
-  const localStorageValues = await page.evaluate(() => {
-    const json = {};
-    for (let i = 0; i < localStorage.length; i+=1) {
-      const key = localStorage.key(i);
-      if (key) {
-        // @ts-ignore
-        json[key] = localStorage.getItem(key);
+  async fetch() {
+    Logger.logInfo("[FETCH_CREDENTIALS] Starting to fetch credentials...");
+    if (this.credentials) {
+      // Check if credentials are still valid (valid for 1 hour)
+      if (new Date().getTime() - this.credentialsDate.getTime() < 3600000) {
+        return;
       }
     }
-    return json;
-  });
 
-  Logger.logInfo("[FETCH_CREDENTIALS] Finished fetching credentials");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const options: any = {
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    };
 
-  await browser.close();
+    const browser = await puppeteer.launch(options);
 
-  localStorageValues.registered = true;
+    Logger.logInfo("[FETCH_CREDENTIALS] Browser launched");
+    const page = await browser.newPage();
 
-  credentials = localStorageValues;
+    await page.goto("https://hyblockcapital.com/login");
 
-  credentialsDate = new Date();
+    // wait for input #Email and #Password to appear and write in credentials
+    await page.waitForSelector("#Email");
+    await page.type("#Email", "dworac");
+    await page.waitForSelector("#Password");
+    await page.type("#Password", "Aasdf;lkj4325@");
 
-  return credentials;
-};
+    // // submit #my_login_form and wait for navigation to finish
+    await Promise.all([
+      page.evaluate(() => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        document.querySelector("form button").click();
+      }),
+      page.waitForNavigation({ waitUntil: "networkidle0" }),
+    ]);
+
+    Logger.logInfo("[FETCH_CREDENTIALS] Logged in");
+
+    // get all localstorage values
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const localStorageValues: any = await page.evaluate(() => {
+      const json = {};
+      for (let i = 0; i < localStorage.length; i += 1) {
+        const key = localStorage.key(i);
+        if (key) {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          json[key] = localStorage.getItem(key);
+        }
+      }
+      return json;
+    });
+
+    Logger.logInfo("[FETCH_CREDENTIALS] Finished fetching credentials");
+
+    await browser.close();
+
+    localStorageValues.registered = true;
+
+    this.credentials = localStorageValues;
+    this.credentialsDate = new Date();
+  }
+
+  async getCredentials() {
+    await this.fetch();
+    return this.credentials;
+  }
+}
+
+const credentialsFetcher = new CredentialsFetcher();
+
+export default credentialsFetcher;
