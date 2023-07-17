@@ -5,11 +5,9 @@
  *     This file is used to fetch the credentials from the website.
  */
 import Logger from "@dworac/logger";
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 puppeteer.use(StealthPlugin());
 
 class CredentialsFetcher {
