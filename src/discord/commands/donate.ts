@@ -26,12 +26,12 @@ const command: Command = {
       .addFields(
         {
           name: "ETH/BSC or similar",
-          value: "0x289f080f7693D4870F0979790Ff22De8FC708926",
+          value: "0x76FDE5eE2DB47B1a3FA4F68e8997E03f12a6156d",
           inline: false,
         },
         {
           name: "BTC",
-          value: "bc1qxrcmza8ac6xj240kj8hk3t57e04xdkw43teu6d",
+          value: "bc1q2sau990cyfzhlepztx3549ujgq3kq6smwj39ea",
           inline: false,
         }
       )
