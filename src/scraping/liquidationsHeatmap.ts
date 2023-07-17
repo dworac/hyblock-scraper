@@ -31,10 +31,8 @@ export default async (credentials: any, ticker: string) => {
     const url = interceptedRequest.url();
     let modifiedUrl = "";
 
-    if (
-      url.includes("https://data.hyblockcapital.com/pythonPages/liq-level?")
-    ) {
-      modifiedUrl = url.replace("ticker=sol", `ticker=${ticker}`);
+    if (url.includes("https://hbc-liqleveltoolheatmap.s3.amazonaws.com")) {
+      modifiedUrl = `https://hbc-liqleveltoolheatmap.s3.amazonaws.com/binance_${ticker.toLowerCase()}_7d_test`;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const params: any = { url: modifiedUrl };
       interceptedRequest.continue(params);
@@ -52,7 +50,7 @@ export default async (credentials: any, ticker: string) => {
     }
   }, credentials);
 
-  await page.goto("https://hyblockcapital.com/liquidationlevel");
+  await page.goto("https://hyblockcapital.com/liquidationlevel-heatmap");
 
   await page.waitForSelector(".my_plot");
 

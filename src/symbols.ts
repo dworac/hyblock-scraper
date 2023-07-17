@@ -1,255 +1,122 @@
+/**
+ * @file src/symbols.ts
+ * @author dworac <mail@dworac.com>
+ *
+ *     This file is used to store the symbols of the cryptocurrencies.
+ */
 export default [
-    "gmt",
-    "gmx",
-    "band",
-
-    "ldo",
-
-    "xrp",
-
-    "bel",
-
-    "crv",
-
-    "dot",
-
-    "one",
-
-    "apt",
-
-    "ankr",
-
-    "api3",
-
-    "astr",
-
-    "hot",
-
-    "qtum",
-
-    "iota",
-
-    "ada",
-
-    "lit",
-
-    "yfi",
-
-    "eth",
-
-    "alpha",
-
-    "woo",
-
-    "sfp",
-
-    "rlc",
-
-    "1000xec",
-
-    "cfx",
-
-    "fxs",
-
-    "audio",
-
-    "neo",
-
-    "unfi",
-
-    "sand",
-
-    "ctk",
-
-    "link",
-
-    "mina",
-
-    "celr",
-
-    "rsr",
-
-    "ren",
-
-    "jasmy",
-
-    "lpt",
-
-    "phb",
-
-    "egld",
-
-    "luna2",
-
-    "imx",
-
-    "ont",
-
-    "vet",
-
-    "coti",
-
-    "cvx",
-
-    "bake",
-
-    "grt",
-
-    "flm",
-
-    "mask",
-
-    "eos",
-
-    "bal",
-
-    "cocos",
-
-    "dent",
-
-    "c98",
-
-    "zen",
-
-    "near",
-
-    "bch",
-
-    "1000shib",
-
-    "ant",
-
-    "aave",
-
-    "icp",
-
-    "1000lunc",
-
-    "avax",
-
-    "magic",
-
-    "rose",
-
-    "matic",
-
-    "mkr",
-
-    "people",
-
-    "theta",
-
-    "uni",
-
-    "rvn",
-
-    "nkn",
-
-    "klay",
-
-    "defi",
-
-    "btcdom",
-
-    "comp",
-
-    "btc",
-
-    "omg",
-
-    "icx",
-
-    "fet",
-
-    "ftm",
-
-    "sxp",
-
-    "xem",
-
-    "zil",
-
-    "axs",
-
-    "dydx",
-
-    "ocean",
-
-    "chz",
-
-    "dusk",
-    "ach",
-    "ctsi",
-    "gmt",
-    "gmx",
-    "fxs",
-    "audio",
-    "gala",
-    "sushi",
-    "inj",
-    "zrx",
-    "high",
-    "spell",
-    "waves",
-    "bnb",
-    "xtz",
-    "dar",
-    "hnt",
-    "etc",
-    "xmr",
-    "alice",
-    "hook",
-    "reef",
-    "bat",
-    "doge",
-    "trx",
-    "storj",
-    "snx",
-    "xlm",
-    "iotx",
-    "dash",
-    "kava",
-    "ape",
-    "rune",
-    "bluebird",
-    "op",
-    "dgb",
-    "football",
-    "skl",
-    "mtl",
-    "tomo",
-    "ltc",
-    "ksm",
-    "flow",
-    "mana",
-    "trb",
-    "chr",
-    "gal",
-    "ogn",
-    "rndr",
-    "stmx",
-    "knc",
-    "enj",
-    "atom",
-    "ens",
-    "agix",
-    "ata",
-    "iost",
-    "hbar",
-    "zec",
-    "gtc",
-    "algo",
-    "lrc",
-    "stg",
-    "stx",
-    "arpa",
-    "celo",
-    "qnt",
-    "1inch",
-    "t",
-    "lina",
-    "ar",
-    "fil",
-    "sol",
-    "blz"
-]
+  "1000PEPE",
+  "1000SHIB",
+  "AAVE",
+  "ADA",
+  "ALGO",
+  "ALICE",
+  "ALPHA",
+  "ANKR",
+  "APE",
+  "APT",
+  "ARB",
+  "ATOM",
+  "AUDIO",
+  "AVAX",
+  "AXS",
+  "BAL",
+  "BAND",
+  "BAT",
+  "BCH",
+  "BEL",
+  "BLUR",
+  "BLZ",
+  "BNB",
+  "BTC",
+  "CHR",
+  "CHZ",
+  "COMP",
+  "COTI",
+  "CRV",
+  "CTK",
+  "DASH",
+  "DEFI",
+  "DOGE",
+  "DOT",
+  "DYDX",
+  "EDU",
+  "EGLD",
+  "ENJ",
+  "ENS",
+  "EOS",
+  "ETC",
+  "ETH",
+  "FIL",
+  "FLM",
+  "FTM",
+  "FXS",
+  "GALA",
+  "GMT",
+  "GMX",
+  "GRT",
+  "HBAR",
+  "ICX",
+  "ID",
+  "INJ",
+  "IOST",
+  "IOTA",
+  "JOE",
+  "KAVA",
+  "KNC",
+  "KSM",
+  "LDO",
+  "LINA",
+  "LINK",
+  "LIT",
+  "LRC",
+  "LTC",
+  "MANA",
+  "MASK",
+  "MATIC",
+  "MKR",
+  "NEAR",
+  "NEO",
+  "OCEAN",
+  "OMG",
+  "ONE",
+  "ONT",
+  "OP",
+  "PEOPLE",
+  "QTUM",
+  "REEF",
+  "REN",
+  "RLC",
+  "RNDR",
+  "ROSE",
+  "RSR",
+  "RUNE",
+  "SAND",
+  "SFP",
+  "SKL",
+  "SNX",
+  "SOL",
+  "STMX",
+  "STORJ",
+  "SUI",
+  "SUSHI",
+  "SXP",
+  "THETA",
+  "TOMO",
+  "TRB",
+  "TRX",
+  "UNFI",
+  "UNI",
+  "VET",
+  "WAVES",
+  "XEM",
+  "XLM",
+  "XMR",
+  "XRP",
+  "XTZ",
+  "YFI",
+  "ZEC",
+  "ZEN",
+  "ZIL",
+  "ZRX",
+];
