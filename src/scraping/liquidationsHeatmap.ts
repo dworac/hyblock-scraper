@@ -64,7 +64,7 @@ export default async (credentials: any, ticker: string) => {
   await page.click('[data-title="Download plot as a png"]');
 
   // Wait for download to finish
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(5000);
 
   // Open downloaded file
   const file = fs.readFileSync(path.join(__dirname, "newplot.png"));
