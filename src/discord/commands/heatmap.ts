@@ -60,7 +60,7 @@ const command: Command = {
       .setTitle(`$${input.toUpperCase()} Liquidation Heatmap`)
       .setURL("https://hyblockcapital.com/liquidationlevel")
       .setAuthor({
-        name: "Hyblock Unnoficial Bot (beta)",
+        name: "Hyblock Unofficial Bot (beta)",
         iconURL:
           "https://media.licdn.com/dms/image/C4D0BAQES6UacuySbaw/company-logo_200_200/0/1635373734562?e=2147483647&v=beta&t=gX6Ysbmav8n9yk_rKMQz2aJ4NnnVcQB_BuiYQD9pmj4",
       })
