@@ -10,6 +10,7 @@ import {
   EmbedBuilder,
 } from "discord.js";
 import fs from "fs";
+import Logger from "@dworac/logger";
 import { Command } from "./Command";
 import fetchCredentials from "../../scraping/fetchCredentials";
 import liquidationsHeatmap from "../../scraping/liquidationsHeatmap";
@@ -88,8 +89,17 @@ const command: Command = {
       await interaction.editReply({ embeds: [exampleEmbed], files: [file] });
 
       fs.rmSync("image.png");
-    } catch {
-      await interaction.editReply("An error ocurred, please try again later");
+      //   eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (e: any) {
+      Logger.logError(e);
+      //   eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const options: any = {
+        embeds: [],
+        files: [],
+        content:
+          "An error occurred while fetching the liquidation levels, please try again later or contact dworac",
+      };
+      await interaction.editReply(options);
     }
   },
 };
