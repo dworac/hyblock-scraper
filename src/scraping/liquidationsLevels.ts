@@ -6,11 +6,9 @@
  */
 import fs from "fs";
 import path from "path";
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 puppeteer.use(StealthPlugin());
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
