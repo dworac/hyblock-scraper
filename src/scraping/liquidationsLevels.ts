@@ -8,6 +8,7 @@ import fs from "fs";
 import path from "path";
 import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
+import config from "../config";
 
 puppeteer.use(StealthPlugin());
 
@@ -15,7 +16,7 @@ puppeteer.use(StealthPlugin());
 export default async (credentials: any, ticker: string) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const options: any = {
-    headless: true,
+    headless: config.PUPPETEER_HEADLESS,
     defaultViewport: { width: 1920, height: 1080 },
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   };
@@ -52,7 +53,10 @@ export default async (credentials: any, ticker: string) => {
 
   await page.goto("https://hyblockcapital.com/liquidationlevel");
 
-  await page.waitForSelector(".my_plot");
+  await Promise.race([
+    page.waitForSelector(".my_plot"),
+    page.waitForSelector(".js-plotly-plot"),
+  ]);
 
   await page.waitForTimeout(1000);
 
