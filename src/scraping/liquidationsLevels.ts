@@ -30,10 +30,9 @@ export default async (credentials: any, ticker: string) => {
     const url = interceptedRequest.url();
     let modifiedUrl = "";
 
-    if (
-      url.includes("https://data.hyblockcapital.com/pythonPages/liq-level?")
-    ) {
-      modifiedUrl = url.replace("ticker=sol", `ticker=${ticker}`);
+    if (url.includes("https://data.new.hyblockcapital.com/liquidation-level")) {
+      modifiedUrl = `
+https://data.new.hyblockcapital.com/liquidation-level?exchange=binance&ticker=${ticker.toLowerCase()}&granularity=tier1&from_near=1689867837200&from_vol=1689867837200`;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const params: any = { url: modifiedUrl };
       interceptedRequest.continue(params);
