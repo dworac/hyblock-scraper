@@ -12,6 +12,9 @@ class Config {
 
   @ConfigVariable(String)
   DISCORD_CLIENT_ID!: string;
+
+  @ConfigVariable(Boolean, true)
+  PUPPETEER_HEADLESS!: boolean;
 }
 
 const config = new Config();

@@ -8,6 +8,7 @@ import fs from "fs";
 import path from "path";
 import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
+import config from "../config";
 
 puppeteer.use(StealthPlugin());
 
@@ -15,7 +16,7 @@ puppeteer.use(StealthPlugin());
 export default async (credentials: any, ticker: string) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const options: any = {
-    headless: false,
+    headless: config.PUPPETEER_HEADLESS,
     defaultViewport: { width: 1920, height: 1080 },
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   };
@@ -29,8 +30,11 @@ export default async (credentials: any, ticker: string) => {
     const url = interceptedRequest.url();
     let modifiedUrl = "";
 
-    if (url.includes("https://hbc-liqleveltoolheatmap.s3.amazonaws.com")) {
-      modifiedUrl = `https://hbc-liqleveltoolheatmap.s3.amazonaws.com/binance_${ticker.toLowerCase()}_7d_test`;
+    if (
+      url.includes("https://data.new.hyblockcapital.com/liquidation-heatmap")
+    ) {
+      // modifiedUrl = `https://hbc-liqleveltoolheatmap.s3.amazonaws.com/binance_${ticker.toLowerCase()}_7d_test`;
+      modifiedUrl = `https://data.new.hyblockcapital.com/liquidation-heatmap?exchange=binance&coin=${ticker.toLowerCase()}&lookback=7d`;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const params: any = { url: modifiedUrl };
       interceptedRequest.continue(params);
@@ -50,7 +54,10 @@ export default async (credentials: any, ticker: string) => {
 
   await page.goto("https://hyblockcapital.com/liquidationlevel-heatmap");
 
-  await page.waitForSelector(".my_plot");
+  await Promise.race([
+    page.waitForSelector(".my_plot"),
+    page.waitForSelector(".js-plotly-plot"),
+  ]);
 
   await page.waitForTimeout(1000);
 

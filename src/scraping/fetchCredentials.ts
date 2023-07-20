@@ -7,6 +7,7 @@
 import Logger from "@dworac/logger";
 import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
+import config from "../config";
 
 puppeteer.use(StealthPlugin());
 
@@ -27,7 +28,7 @@ class CredentialsFetcher {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const options: any = {
-      headless: true,
+      headless: config.PUPPETEER_HEADLESS,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     };
 
